@@ -6,22 +6,24 @@ import FaceOutlinedIcon from "@material-ui/icons/FaceOutlined";
 import "./header.scss";
 
 function Header(props) {
-  const [value, setValue] = React.useState(0);
+  // const [value, setValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  // const handleChange = (event, newValue) => {
+  //   setValue(newValue);
+  // };
   return (
     <div className="root">
       <AppBar position="static">
         <Tabs
-          value={value}
-          onChange={handleChange}
+          value={props.val}
+          // onChange={handleChange}
           className="tabs"
+          // initialSelectedIndex={props.val}
           // value={props.history.location.pathname}
           // onChange={handleCallToRouter}
         >
           <Tab
+            value={0}
             className="tab"
             href="/"
             component={Link}
@@ -30,6 +32,7 @@ function Header(props) {
             label="Calls"
           />
           <Tab
+            value={1}
             className="tab"
             href="/medicinewaiting"
             component={Link}
@@ -38,6 +41,7 @@ function Header(props) {
             label="Medicine"
           />
           <Tab
+            value={2}
             className="tab"
             href="/patients"
             component={Link}

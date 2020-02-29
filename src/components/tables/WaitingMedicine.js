@@ -11,22 +11,20 @@ import ReportProblemRoundedIcon from "@material-ui/icons/ReportProblemRounded";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import "./tables.scss";
 
-function WaitingCalls(props) {
+function WaitingMedicine(props) {
+  console.log(props.calls);
   return (
     <List className="list">
       {props.calls !== undefined
-        ? props.calls.map((call, index) => {
+        ? props.calls.map((medicine, index) => {
             return (
-              <ListItem key={call.id} button className={call.color}>
+              <ListItem key={medicine.id} button className={medicine.color}>
                 <ListItemAvatar>
                   {/* <Avatar> */}
                   <ReportProblemRoundedIcon />
                   {/* </Avatar> */}
                 </ListItemAvatar>
-                <ListItemText
-                  primary={call.patient.name + " " + call.patient.surname}
-                  secondary={call.patient.disease}
-                />
+                <ListItemText primary="Sala 253/A" secondary="złamana noga" />
                 <ListItemSecondaryAction>
                   <IconButton edge="end" aria-label="delete">
                     <VisibilityIcon />
@@ -40,4 +38,4 @@ function WaitingCalls(props) {
   );
 }
 
-export default WaitingCalls;
+export default WaitingMedicine;

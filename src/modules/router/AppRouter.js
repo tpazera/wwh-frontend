@@ -6,6 +6,7 @@ import PatientsPage from "../../pages/PatientsPage";
 import CallsWaitingPage from "../../pages/CallsWaitingPage";
 import AddPatientPage from "../../pages/AddPatientPage";
 import MedicineWaitingPage from "../../pages/MedicineWaitingPage";
+import CallsCarousel from "../../components/calls/CallsCarousel";
 
 function AppRouter(props, { children }) {
   const [user, setUser] = useState("");
@@ -27,6 +28,7 @@ function AppRouter(props, { children }) {
             component={MedicineWaitingPage}
           />
         </Switch>
+        <CallsCarousel />
       </div>
     </BrowserRouter>
   );
