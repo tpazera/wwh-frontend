@@ -3,6 +3,7 @@ import { Link, Grid, AppBar, Tabs, Tab } from "@material-ui/core";
 import NotificationImportantOutlinedIcon from "@material-ui/icons/NotificationImportantOutlined";
 import AlarmAddOutlinedIcon from "@material-ui/icons/AlarmAddOutlined";
 import FaceOutlinedIcon from "@material-ui/icons/FaceOutlined";
+import HistoryIcon from '@material-ui/icons/History';
 import "./header.scss";
 
 function Header(props) {
@@ -48,6 +49,15 @@ function Header(props) {
             to="/patients"
             icon={<FaceOutlinedIcon />}
             label="Patients"
+          />
+          <Tab
+            value={3}
+            className="tab"
+            href="/callshistory"
+            component={Link}
+            to="/callshistory"
+            icon={<HistoryIcon />}
+            label="Calls history"
           />
         </Tabs>
       </AppBar>
