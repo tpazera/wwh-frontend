@@ -24,7 +24,10 @@ function WaitingMedicine(props) {
                   <ReportProblemRoundedIcon />
                   {/* </Avatar> */}
                 </ListItemAvatar>
-                <ListItemText primary="Sala 253/A" secondary="złamana noga" />
+                <ListItemText
+                  primary={medicine.time}
+                  secondary={medicine.information}
+                />
                 <ListItemSecondaryAction>
                   <IconButton edge="end" aria-label="delete">
                     <VisibilityIcon />

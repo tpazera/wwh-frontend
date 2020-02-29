@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button } from "@material-ui/core";
+import { Paper, Button, ButtonGroup } from "@material-ui/core";
+import ErrorIcon from "@material-ui/icons/Error";
 import Axios from "axios";
+import "./callsCarousel.scss";
 
 function CallsCarousel() {
   const [calls, setCalls] = useState([]);
@@ -9,7 +11,8 @@ function CallsCarousel() {
   const getWaitingCalls = () => {
     Axios.get("https://white-wolf-hacathon.herokuapp.com/alarms/active")
       .then(res => {
-        setCalls(res.data);
+        // setCalls(res.data);
+        console.log(res.data);
       })
       .catch(err => {
         console.log(err);
@@ -21,24 +24,35 @@ function CallsCarousel() {
     setInterval(function() {
       getWaitingCalls();
     }, 60000);
+    console.log(calls);
   }, []);
 
-  return (
-    <Carousel autoPlay={false} indicators={false} className="carousel">
-      {calls.map(call => {
-        return <Slide item={call} />;
-      })}
-    </Carousel>
-  );
+  if (calls.length > 0) {
+    console.log(calls.length);
+    return (
+      <Carousel autoPlay={false} indicators={false} className="carousel">
+        {calls.map(call => {
+          return <Slide item={call} />;
+        })}
+      </Carousel>
+    );
+  } else {
+    return <></>;
+  }
 }
 
 function Slide(props) {
+  console.log(props.item);
   return (
-    <Paper>
-      <h2>{props.item.name}</h2>
-      <p>{props.item.description}</p>
-
-      <Button className="CheckButton">Check it out!</Button>
+    <Paper key={props.item.id}>
+      <h2>{props.item.hour}</h2>
+      <ErrorIcon style={{ fontSize: 80 }} />
+      <br />
+      <p>{props.item.patient.disease}</p>
+      <ButtonGroup color="primary" aria-label="outlined primary button group">
+        <Button className="acceptCall">Akceptuj</Button>
+        <Button className="denyCall">Odrzuć</Button>
+      </ButtonGroup>
     </Paper>
   );
 }
