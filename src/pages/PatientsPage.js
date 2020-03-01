@@ -27,7 +27,7 @@ function PatientsPage() {
   return (
     <Grid container component="main">
       <Grid item>
-        <Header />
+        <Header val={3} />
         <PatientCalls calls={calls} />
       </Grid>
     </Grid>

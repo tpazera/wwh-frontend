@@ -11,7 +11,7 @@ function CallsCarousel() {
   const getWaitingCalls = () => {
     Axios.get("https://white-wolf-hacathon.herokuapp.com/alarms/active")
       .then(res => {
-        // setCalls(res.data);
+        setCalls(res.data);
         console.log(res.data);
       })
       .catch(err => {
@@ -42,7 +42,10 @@ function CallsCarousel() {
 }
 
 function Slide(props) {
-  console.log(props.item);
+  const acceptCall = id => {
+    return id;
+  };
+
   return (
     <Paper key={props.item.id}>
       <h2>{props.item.hour}</h2>
@@ -50,7 +53,12 @@ function Slide(props) {
       <br />
       <p>{props.item.patient.disease}</p>
       <ButtonGroup color="primary" aria-label="outlined primary button group">
-        <Button className="acceptCall">Akceptuj</Button>
+        <Button
+          className="acceptCall"
+          onClick={() => acceptCall(props.item.id)}
+        >
+          Akceptuj
+        </Button>
         <Button className="denyCall">Odrzuć</Button>
       </ButtonGroup>
     </Paper>
