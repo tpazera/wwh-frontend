@@ -8,7 +8,7 @@ function ClassWaitingPage() {
   const [calls, setCalls] = useState([]);
 
   const getWaitingCalls = () => {
-    Axios.get("https://white-wolf-hacathon.herokuapp.com/alarms/active")
+    Axios.get("https://white-wolf-hacathon.herokuapp.com/alarms/active/")
       .then(res => {
         setCalls(res.data);
         console.log(res.data);

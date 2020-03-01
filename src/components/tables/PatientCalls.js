@@ -12,8 +12,6 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import "./tables.scss";
 
 function PatientCalls(props) {
-  const getCalls = () => {};
-
   return (
     <List className="list">
       {props.calls.map(e => (

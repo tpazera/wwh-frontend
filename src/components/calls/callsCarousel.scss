@@ -1,8 +1,108 @@
+@import "./../../modules/main/variables.scss";
+
 .carousel {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: red;
+    background: $c1;
     top: 0;
     left: 0;
+    &:not(.arrows) {
+        &.Carousel .ButtonWrapper .Button {
+            opacity: 0 !important;
+        }
+    }
+}
+
+.Carousel .ButtonWrapper {
+    .Button {
+        opacity: 0.4 !important;
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+}
+
+.CarouselItem {
+    width: 100%;
+    height: 100%;
+    > div, .paper {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.paper {
+    // margin-top: -20px;
+    border: none;
+    border-radius: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    &.RED {
+        background: #F8D7DA;
+    }
+    &.GREEN {
+        background: #D4EDDA;
+    }
+    &.ORANGE {
+        background: #FFF3CD;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    svg {
+        font-size: 130px !important;
+    }
+    p {
+        font-size: 25px;
+    }
+    p.patient {
+        margin-bottom: 20px;
+        font-size: 25px;
+        display: block;
+        letter-spacing: 3.5px;
+        max-width: calc(100% - 130px);
+        text-transform: uppercase;
+    }
+    p.disease {
+        padding: 0 20px;
+        margin-bottom: 0px;
+        font-size: 25px;
+        span.additionalInfo {
+            display: block;
+            font-size: 20px;
+        }
+    }
+    p.room {
+        text-transform: uppercase;
+        background: black;
+        color: white;
+        display: block;
+        padding: 8px 20px;
+        border-radius: 5px;
+        border: 1px solid black;
+        margin-bottom: 60px;
+    }
+    .MuiButtonGroup-root {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .acceptCall, .denyCall {
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 20px;
+            border: none;
+            color: white;
+        }
+        .acceptCall {
+            background: #28A745;
+        }
+        .denyCall {
+            background: #DC3545;
+        }
+    }
 }

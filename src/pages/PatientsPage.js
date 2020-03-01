@@ -22,7 +22,7 @@ function PatientsPage() {
     setInterval(function() {
       getWaitingCalls();
     }, 60000);
-  });
+  }, []);
 
   return (
     <Grid container component="main">
