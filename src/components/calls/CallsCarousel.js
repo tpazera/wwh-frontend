@@ -11,7 +11,7 @@ function CallsCarousel() {
   const getWaitingCalls = () => {
     Axios.get("https://white-wolf-hacathon.herokuapp.com/alarms/active")
       .then(res => {
-        setCalls(res.data);
+        // setCalls(res.data);
         console.log(res.data);
       })
       .catch(err => {
