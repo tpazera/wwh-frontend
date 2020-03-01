@@ -1,17 +1,16 @@
 .list {
-    background: #fff;
-    padding: 0 !important;
-    max-width: 375px;
-    margin: 0 auto;
-    .listItem {
-        .red {
-            background: RED;
-        }
-        .green {
-            background: GREEN;
-        }
-        .orange {
-            background: ORANGE;
-        }
-    }
+  background: #fff;
+  padding: 0 !important;
+  max-width: 375px;
+  margin: 0 auto;
+
+  .RED {
+    background: #92140c;
+  }
+  .GREEN {
+    background: #1b9d46;
+  }
+  .orange {
+    background: #d66e00;
+  }
 }

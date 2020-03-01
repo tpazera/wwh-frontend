@@ -1,18 +1,19 @@
 .root {
-    flex-grow: 1;
-    width: 100%;
+  flex-grow: 1;
+  width: 100%;
 }
 
 .tabs {
-    width: 100%;
-    max-width: 375px;
-    display: flex;
-    .tab {
-        flex: 0 0 33%;
-        font-size: 13px;
-        min-width: 125px;
-        svg {
-            font-size: 30px;
-        }
+  width: 100%;
+  max-width: 375px;
+  display: flex;
+  .tab {
+    flex: 0 0 33%;
+    background-color: #06070e !important;
+    font-size: 13px;
+    min-width: 125px;
+    svg {
+      font-size: 30px;
     }
+  }
 }
