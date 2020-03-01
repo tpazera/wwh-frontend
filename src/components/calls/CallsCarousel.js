@@ -29,7 +29,7 @@ function CallsCarousel() {
         "5e5adef76bfa7652d6d4b5c0"
     )
       .then(res => {
-        setCalls(res.data);
+        // setCalls(res.data);
         console.log(res.data);
       })
       .catch(err => {

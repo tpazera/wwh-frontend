@@ -25,8 +25,19 @@ function WaitingMedicine(props) {
                   {/* </Avatar> */}
                 </ListItemAvatar>
                 <ListItemText
-                  primary={medicine.time}
-                  secondary={medicine.information}
+                  primary={
+                    medicine.patient.name +
+                    " " +
+                    medicine.patient.surname +
+                    " " +
+                    medicine.time
+                  }
+                  secondary={
+                    "Room: " +
+                    medicine.patient.room +
+                    " " +
+                    medicine.information
+                  }
                 />
                 <ListItemSecondaryAction>
                   <IconButton edge="end" aria-label="delete">
