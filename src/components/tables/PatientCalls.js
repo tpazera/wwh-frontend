@@ -15,7 +15,7 @@ function PatientCalls(props) {
   return (
     <List className="list">
       {props.calls.map(e => (
-        <ListItem button className="red">
+        <ListItem button className="">
           <ListItemAvatar>
             {/* <Avatar> */}
             <AccessibilityIcon />

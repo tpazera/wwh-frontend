@@ -1,13 +1,17 @@
 .list {
     background: #fff;
     padding: 0 !important;
-    .red {
-        background: red;
-    }
-    .green {
-        background: green;
-    }
-    .orange {
-        background: orange;
+    max-width: 375px;
+    margin: 0 auto;
+    .listItem {
+        .red {
+            background: RED;
+        }
+        .green {
+            background: GREEN;
+        }
+        .orange {
+            background: ORANGE;
+        }
     }
 }

@@ -26,7 +26,7 @@ function MedicineWaitingPage() {
 
   return (
     <>
-      <Grid container component="main">
+      <Grid container component="main" className="container-small">
         <Grid item>
           <Header val={1} />
           <WaitingMedicine calls={calls} />

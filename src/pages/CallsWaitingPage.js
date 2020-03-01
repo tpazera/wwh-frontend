@@ -4,7 +4,7 @@ import Header from "../components/header/Header";
 import { Grid } from "@material-ui/core";
 import WaitingCalls from "../components/tables/WaitingCalls";
 
-function ClassWaitingPage() {
+function ClassWaitingPage(props) {
   const [calls, setCalls] = useState([]);
 
   const getWaitingCalls = () => {
@@ -19,6 +19,7 @@ function ClassWaitingPage() {
   };
 
   useEffect(() => {
+    console.log(props);
     getWaitingCalls();
     setInterval(function() {
       getWaitingCalls();
@@ -26,10 +27,10 @@ function ClassWaitingPage() {
   }, []);
 
   return (
-    <Grid container component="main">
+    <Grid container component="main" className="container-small">
       <Grid item>
         <Header val={0} />
-        <WaitingCalls calls={calls} />
+        <WaitingCalls setId={props.setId} calls={calls} />
       </Grid>
     </Grid>
   );

@@ -12,12 +12,21 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import "./tables.scss";
 
 function WaitingCalls(props) {
+  const showDetails = id => {
+    // props.setId(id);
+    console.log(props);
+  };
   return (
     <List className="list">
       {props.calls !== undefined
         ? props.calls.map((call, index) => {
             return (
-              <ListItem key={call.id} button className={call.color}>
+              <ListItem
+                key={call.id}
+                button
+                className={`listItem ${call.color}`}
+                onClick={() => showDetails(call.id)}
+              >
                 <ListItemAvatar>
                   {/* <Avatar> */}
                   <ReportProblemRoundedIcon />

@@ -25,9 +25,9 @@ function PatientsPage() {
   }, []);
 
   return (
-    <Grid container component="main">
+    <Grid container component="main" className="container-small">
       <Grid item>
-        <Header val={3} />
+        <Header val={2} />
         <PatientCalls calls={calls} />
       </Grid>
     </Grid>

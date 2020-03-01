@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TextField, InputAdornment, Button } from "@material-ui/core";
 import Person from "@material-ui/icons/Person";
 import Lock from "@material-ui/icons/Lock";
+import "./loginForm.scss";
 
 function LoginForm(props) {
   const [username, setUsername] = useState("");
