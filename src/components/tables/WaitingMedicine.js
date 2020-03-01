@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   List,
   ListItem,
@@ -26,8 +26,19 @@ import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker
 } from "@material-ui/pickers";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import Axios from "axios";
 
 function WaitingMedicine(props) {
+  const [patient, setPatient] = useState([]);
+  const [patients, setPatients] = useState([]);
+  const [nurse, setNurse] = useState([]);
+  const [nurses, setNurses] = useState([]);
+  const [info, setInfo] = useState([]);
   const [open, setOpen] = React.useState(false);
   const [selectedDate, setSelectedDate] = React.useState(
     new Date("2014-08-18T21:11:54")
@@ -35,6 +46,18 @@ function WaitingMedicine(props) {
 
   const handleClickOpen = () => {
     setOpen(true);
+  };
+
+  const handlePatientChange = event => {
+    setPatient(event.target.value);
+  };
+
+  const handleInfoChange = event => {
+    setInfo(event.target.value);
+  };
+
+  const handleNurseChange = event => {
+    setNurse(event.target.value);
   };
 
   const handleDateChange = date => {
@@ -55,7 +78,48 @@ function WaitingMedicine(props) {
     props.handleClickOpen(id);
   };
 
-  // console.log(props.calls);
+  const handleAdd = () => {
+    Axios.post("https://white-wolf-hacathon.herokuapp.com/medicines", {
+      time: selectedDate,
+      patientId: patient,
+      information: info,
+      nurse: nurse
+    })
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getPatients();
+    getNurses();
+  }, []);
+
+  const getPatients = () => {
+    Axios.get("https://white-wolf-hacathon.herokuapp.com/patients")
+      .then(res => {
+        setPatients(res.data);
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  const getNurses = () => {
+    Axios.get("https://white-wolf-hacathon.herokuapp.com/nurses")
+      .then(res => {
+        setNurses(res.data);
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
       <List className="list">
@@ -105,48 +169,73 @@ function WaitingMedicine(props) {
         <Button variant="outlined" color="primary" onClick={handleClickOpen}>
           Add
         </Button>
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="form-dialog-title"
-        >
-          <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              To subscribe to this website, please enter your email address
-              here. We will send updates occasionally.
-            </DialogContentText>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Email Address"
-              type="email"
-              fullWidth
-            />
-            <TextField
-              id="time"
-              type="24-hour clock"
-              defaultValue="08:30"
-              onChange={handleTimerEndChange}
-              InputLabelProps={{
-                shrink: true
-              }}
-              inputProps={{
-                step: 300 // 5 min
-              }}
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="primary">
-              Cancel
-            </Button>
-            <Button onClick={handleClose} color="primary">
-              Subscribe
-            </Button>
-          </DialogActions>
-        </Dialog>
       </div>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">Dodaj lek</DialogTitle>
+        <DialogContent>
+          <FormControl>
+            Pacjent
+            <Select
+              style={{ float: "right" }}
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={patient}
+              onChange={handlePatientChange}
+            >
+              {patients.map((item, key) => (
+                <MenuItem value={item.id}>
+                  {item.name + " " + item.surname}
+                </MenuItem>
+              ))}
+            </Select>
+            Pielegniarka
+            <Select
+              labelId="demo-simple-select-label1"
+              id="demo-simple-select1"
+              value={nurse}
+              onChange={handleNurseChange}
+            >
+              {nurses.map((item, key) => (
+                <MenuItem value={item.id}>
+                  {item.name + " " + item.surname}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <TextField
+            margin="dense"
+            id="info"
+            label="Informacje"
+            type="info"
+            fullWidth
+            onChange={handleInfoChange}
+          />
+          <TextField
+            id="time"
+            type="24-hour clock"
+            defaultValue="08:30"
+            onChange={handleTimerEndChange}
+            InputLabelProps={{
+              shrink: true
+            }}
+            inputProps={{
+              step: 300
+            }}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Anuluj
+          </Button>
+          <Button onClick={handleAdd} color="primary">
+            Dodaj
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }
