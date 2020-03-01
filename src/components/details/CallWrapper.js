@@ -4,8 +4,9 @@ import "./callWrapper.scss";
 
 function CallWrapper(props) {
   if (props.id != undefined) {
+    console.log(props.open);
     return (
-      <div className={`details-wrapper ${props.open ? "active" : ""}`}>
+      <div className={`details-wrapper ${props.id != "" ? "active" : ""}`}>
         <CallDetails id={props.id} />
       </div>
     );
