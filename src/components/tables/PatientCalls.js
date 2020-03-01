@@ -7,18 +7,20 @@ import {
   IconButton,
   ListItemSecondaryAction
 } from "@material-ui/core";
-import AccessibilityIcon from "@material-ui/icons/Accessibility";
+// import AccessibilityIcon from "@material-ui/icons/Accessibility";
+
+import PersonIcon from "@material-ui/icons/Person";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import "./tables.scss";
 
 function PatientCalls(props) {
   return (
-    <List className="list">
+    <List className="list list-medicine">
       {props.calls.map(e => (
         <ListItem key={e.id} button className="">
           <ListItemAvatar>
             {/* <Avatar> */}
-            <AccessibilityIcon />
+            <PersonIcon />
             {/* </Avatar> */}
           </ListItemAvatar>
           <ListItemText

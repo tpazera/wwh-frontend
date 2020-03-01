@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import ReportProblemRoundedIcon from "@material-ui/icons/ReportProblemRounded";
 import VisibilityIcon from "@material-ui/icons/Visibility";
+import PriorityHighIcon from "@material-ui/icons/PriorityHigh";
 import "./tables.scss";
 
 function WaitingCalls(props) {
@@ -30,7 +31,7 @@ function WaitingCalls(props) {
               >
                 <ListItemAvatar>
                   {/* <Avatar> */}
-                  <ReportProblemRoundedIcon />
+                  <PriorityHighIcon />
                   {/* </Avatar> */}
                 </ListItemAvatar>
                 <ListItemText

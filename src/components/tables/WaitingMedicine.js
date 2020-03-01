@@ -8,6 +8,7 @@ import {
   ListItemSecondaryAction
 } from "@material-ui/core";
 import ReportProblemRoundedIcon from "@material-ui/icons/ReportProblemRounded";
+import LocalDrinkIcon from "@material-ui/icons/LocalDrink";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import "./tables.scss";
@@ -122,7 +123,7 @@ function WaitingMedicine(props) {
 
   return (
     <div>
-      <List className="list">
+      <List className="list list-medicine">
         {props.calls !== undefined
           ? props.calls.map((medicine, index) => {
               return (
@@ -134,7 +135,7 @@ function WaitingMedicine(props) {
                 >
                   <ListItemAvatar>
                     {/* <Avatar> */}
-                    <ReportProblemRoundedIcon />
+                    <LocalDrinkIcon />
                     {/* </Avatar> */}
                   </ListItemAvatar>
                   <ListItemText
