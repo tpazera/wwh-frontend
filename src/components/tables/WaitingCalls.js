@@ -24,7 +24,7 @@ function WaitingCalls(props) {
               <ListItem
                 key={call.id}
                 button
-                className={`listItem ${call.color}`}
+                className={call.color}
                 onClick={() => showDetails(call.id)}
               >
                 <ListItemAvatar>

@@ -5,7 +5,7 @@ import Logo from "../components/logo/Logo";
 
 function LoginPage(props) {
   return (
-    <Grid container component="main" className="container-small">
+    <Grid container component="main" className="container-small login-page">
       <Grid item>
         <Logo />
         <LoginForm setUSer={props.setUser} />

@@ -78,8 +78,6 @@ function CallsCarousel() {
     // addCall();
     // addCall();
     // addCall();
-    // addCall();
-    // addCall();
   }, []);
 
   if (calls.length > 0) {
@@ -94,10 +92,11 @@ function CallsCarousel() {
         className={`carousel container-small ${arrows}`}
       >
         {calls.map(call => {
+          console.log(call);
           return (
             <CallDetails
               key={call.id}
-              call={call}
+              id={call.id}
               acceptCall={() => acceptCall(call.id)}
               denyCall={() => denyCall(call.id)}
             />

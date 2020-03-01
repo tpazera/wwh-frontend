@@ -1,17 +1,34 @@
+@import url("https://fonts.googleapis.com/css?family=Exo&display=swap");
+
 .list {
-    background: #fff;
-    padding: 0 !important;
-    max-width: 375px;
-    margin: 0 auto;
-    .listItem {
-        .red {
-            background: RED;
-        }
-        .green {
-            background: GREEN;
-        }
-        .orange {
-            background: ORANGE;
-        }
-    }
+  background: #fff;
+  padding: 0 !important;
+  max-width: 375px;
+  margin: 0 auto;
+
+  .RED {
+    color: #fff;
+    font-family: "Exo";
+    background: #890000;
+  }
+  .GREEN {
+    color: #fff;
+    background: #3ee32d;
+  }
+  .ORANGE {
+    color: #fff;
+    background: #f47418;
+  }
+
+  .RED:hover {
+    background: #720000;
+  }
+
+  .GREEN:hover {
+    background: #2da320;
+  }
+
+  .ORANGE:hover {
+    background: #c45d13;
+  }
 }

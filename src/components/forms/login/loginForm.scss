@@ -1,5 +1,5 @@
 .MuiSvgIcon-root {
-  padding: 30px 0;
+  // padding: 30px 0;
 }
 form {
   padding: 0 30px;
@@ -11,4 +11,15 @@ form {
 .loginButton {
   background-color: #06070e !important;
   color: #fff !important;
+}
+
+.login-page {
+  display: flex;
+  align-items: center;
+  img {
+    margin: 30px 0;
+  }
+  a {
+    width: 100%;
+  }
 }
