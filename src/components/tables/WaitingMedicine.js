@@ -167,8 +167,13 @@ function WaitingMedicine(props) {
       <div
         style={{ float: "right", position: "absolute", bottom: 0, right: 0 }}
       >
-        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-          Add
+        <Button
+          className="add-patient"
+          variant="outlined"
+          color="primary"
+          onClick={handleClickOpen}
+        >
+          Dodaj
         </Button>
       </div>
       <Dialog
