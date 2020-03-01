@@ -11,7 +11,7 @@ function ClassWaitingPage(props) {
     Axios.get("https://white-wolf-hacathon.herokuapp.com/alarms/active/")
       .then(res => {
         setCalls(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch(err => {
         console.log(err);
@@ -19,7 +19,7 @@ function ClassWaitingPage(props) {
   };
 
   useEffect(() => {
-    console.log(props);
+    // console.log(props);
     getWaitingCalls();
     setInterval(function() {
       getWaitingCalls();
@@ -30,7 +30,12 @@ function ClassWaitingPage(props) {
     <Grid container component="main" className="container-small">
       <Grid item>
         <Header val={0} />
-        <WaitingCalls setId={props.setId} calls={calls} />
+        <WaitingCalls
+          // setId={props.setId}
+          calls={calls}
+          handleClickOpen={props.handleClickOpen}
+          handleCLose={props.handleClose}
+        />
       </Grid>
     </Grid>
   );

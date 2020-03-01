@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button, ButtonGroup } from "@material-ui/core";
-import ErrorIcon from "@material-ui/icons/Error";
+import AlarmAddIcon from "@material-ui/icons/AlarmAdd";
 import Axios from "axios";
 import "./callWrapper.scss";
 
-function CallDetails(props) {
+function MedicineDetails(props) {
   const [currentId, setCurrentId] = useState("");
   const [call, setCall] = useState({});
 
   const getCurrentCall = id => {
     console.log(id);
     if (id !== "")
-      Axios.get("https://white-wolf-hacathon.herokuapp.com/alarms/" + id)
+      Axios.get("https://white-wolf-hacathon.herokuapp.com/medicines/" + id)
         .then(res => {
-          //   console.log(res.data);
+          console.log(res.data);
           if (!(res.data instanceof Array)) setCall(res.data);
         })
         .catch(err => {
@@ -23,10 +23,9 @@ function CallDetails(props) {
   };
 
   const acceptCall = id => {
-    Axios.post("https://white-wolf-hacathon.herokuapp.com/alarms/accept", {
-      alarmId: id,
-      nurseId: "5e5af683f0950c704031427d"
-    })
+    Axios.patch(
+      "https://white-wolf-hacathon.herokuapp.com/medicines/" + id + "/given"
+    )
       .then(res => {
         props.handleClose();
         // console.log(res.data);
@@ -38,19 +37,19 @@ function CallDetails(props) {
   };
 
   const denyCall = id => {
-    Axios.post(
-      "https://white-wolf-hacathon.herokuapp.com/alarms/" +
-        id +
-        "/decline/" +
-        "5e5af683f0950c704031427d"
-    )
-      .then(res => {
-        props.handleClose();
-        // console.log(res.data)
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    // Axios.post(
+    //   "https://white-wolf-hacathon.herokuapp.com/alarms/" +
+    //     id +
+    //     "/decline/" +
+    //     "5e5af683f0950c704031427d"
+    // )
+    //   .then(res => {
+    props.handleClose();
+    // console.log(res.data)
+    // })
+    // .catch(err => {
+    //   console.log(err);
+    // });
   };
 
   useEffect(() => {
@@ -59,16 +58,16 @@ function CallDetails(props) {
 
   if (call !== undefined && call.id !== undefined) {
     return (
-      <Paper key={call.id} className={`paper ${call.color}`}>
-        <h2>{call.hour}</h2>
-        <ErrorIcon style={{ fontSize: 80 }} />
+      <Paper key={call.id} className="paper">
+        <h2>{call.time}</h2>
+        <AlarmAddIcon style={{ fontSize: 80 }} />
         <br />
         <p className="patient">
           {call.patient.name} {call.patient.surname}
         </p>
         <p className="disease">
           {call.patient.disease}{" "}
-          <span className="additionalInfo">{call.patient.additionalInfo}</span>
+          <span className="additionalInfo">{call.information}</span>
         </p>
         <p className="room">Sala: {call.patient.room}</p>
         <ButtonGroup color="primary" aria-label="outlined primary button group">
@@ -80,11 +79,11 @@ function CallDetails(props) {
           </Button>
         </ButtonGroup>
       </Paper>
-      //   <></>
+      // <></>
     );
   } else {
     return <></>;
   }
 }
 
-export default CallDetails;
+export default MedicineDetails;

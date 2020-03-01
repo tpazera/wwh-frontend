@@ -13,9 +13,10 @@ import "./tables.scss";
 
 function WaitingCalls(props) {
   const showDetails = id => {
-    props.setId(id);
+    // props.setId(id);
+
+    props.handleClickOpen(id);
   };
-  console.log("render list");
   return (
     <List className="list">
       {props.calls !== undefined

@@ -17,7 +17,7 @@ function CallsCarousel() {
     })
       .then(res => {
         setCalls(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch(err => {
         console.log(err);
@@ -31,7 +31,7 @@ function CallsCarousel() {
     )
       .then(res => {
         setCalls(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch(err => {
         console.log(err);
@@ -45,7 +45,7 @@ function CallsCarousel() {
     })
       .then(res => {
         getWaitingCalls();
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch(err => {
         console.log(err);
@@ -92,14 +92,37 @@ function CallsCarousel() {
         className={`carousel container-small ${arrows}`}
       >
         {calls.map(call => {
-          console.log(call);
+          // console.log(call);
           return (
-            <CallDetails
-              key={call.id}
-              id={call.id}
-              acceptCall={() => acceptCall(call.id)}
-              denyCall={() => denyCall(call.id)}
-            />
+            <Paper key={call.id} className={`paper ${call.color}`}>
+              <h2>{call.hour}</h2>
+              <ErrorIcon style={{ fontSize: 80 }} />
+              <br />
+              <p className="patient">
+                {call.patient.name} {call.patient.surname}
+              </p>
+              <p className="disease">
+                {call.patient.disease}{" "}
+                <span className="additionalInfo">
+                  {call.patient.additionalInfo}
+                </span>
+              </p>
+              <p className="room">Sala: {call.patient.room}</p>
+              <ButtonGroup
+                color="primary"
+                aria-label="outlined primary button group"
+              >
+                <Button
+                  className="acceptCall"
+                  onClick={() => acceptCall(call.id)}
+                >
+                  Akceptuj
+                </Button>
+                <Button className="denyCall" onClick={() => denyCall(call.id)}>
+                  Odrzuć
+                </Button>
+              </ButtonGroup>
+            </Paper>
           );
         })}
       </Carousel>

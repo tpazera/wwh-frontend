@@ -4,7 +4,7 @@ import Header from "../components/header/Header";
 import WaitingMedicine from "../components/tables/WaitingMedicine";
 import Axios from "axios";
 
-function MedicineWaitingPage() {
+function MedicineWaitingPage(props) {
   const [calls, setCalls] = useState([]);
 
   const getWaitingMedicine = () => {
@@ -29,7 +29,11 @@ function MedicineWaitingPage() {
       <Grid container component="main" className="container-small">
         <Grid item>
           <Header val={1} />
-          <WaitingMedicine calls={calls} />
+          <WaitingMedicine
+            calls={calls}
+            handleClickOpen={props.handleClickOpen}
+            handleCLose={props.handleClose}
+          />
         </Grid>
       </Grid>
     </>
