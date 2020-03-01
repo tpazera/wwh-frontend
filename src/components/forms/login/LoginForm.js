@@ -37,7 +37,7 @@ function LoginForm(props) {
         fullWidth
         value={password}
         id="username"
-        label="Nazwa użytkownika"
+        label="Hasło"
         name="username"
         autoComplete="username"
         autoFocus
@@ -50,7 +50,7 @@ function LoginForm(props) {
           )
         }}
       />
-      <Button variant="contained" color="primary" href="/">
+      <Button variant="contained" className="loginButton" href="/">
         Zaloguj
       </Button>
     </form>
