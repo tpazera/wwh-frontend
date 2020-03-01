@@ -21,7 +21,7 @@ function LoginForm(props) {
         name="username"
         autoComplete="username"
         autoFocus
-        onChange={e => setUsername(e)}
+        onChange={e => setUsername(e.currentTarget.value)}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -36,12 +36,13 @@ function LoginForm(props) {
         required
         fullWidth
         value={password}
-        id="username"
+        id="password"
         label="Hasło"
-        name="username"
-        autoComplete="username"
+        name="password"
+        autoComplete="password"
+        type="password"
         autoFocus
-        onChange={e => setPassword(e)}
+        onChange={e => setPassword(e.currentTarget.value)}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">

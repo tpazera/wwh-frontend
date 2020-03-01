@@ -12,3 +12,14 @@ form {
   background-color: #06070e !important;
   color: #fff !important;
 }
+
+.login-page {
+  display: flex;
+  align-items: center;
+  img {
+    margin: 30px 0;
+  }
+  a {
+    width: 100%;
+  }
+}
