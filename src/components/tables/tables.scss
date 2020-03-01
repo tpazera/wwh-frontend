@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Exo&display=swap");
+
 .list {
   background: #fff;
   padding: 0 !important;
@@ -5,12 +7,28 @@
   margin: 0 auto;
 
   .RED {
-    background: #92140c;
+    color: #fff;
+    font-family: "Exo";
+    background: #890000;
   }
   .GREEN {
-    background: #1b9d46;
+    color: #fff;
+    background: #3ee32d;
   }
   .ORANGE {
-    background: #d66e00;
+    color: #fff;
+    background: #f47418;
+  }
+
+  .RED:hover {
+    background: #720000;
+  }
+
+  .GREEN:hover {
+    background: #2da320;
+  }
+
+  .ORANGE:hover {
+    background: #c45d13;
   }
 }
