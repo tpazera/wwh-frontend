@@ -1,8 +1,7 @@
 import React from "react";
-import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
+import logo from "./logo.png";
 
 function Logo() {
-  return <LocalHospitalIcon style={{ fontSize: 80 }} />;
+  return <img src={logo} alt="Logo" />;
 }
-
 export default Logo;

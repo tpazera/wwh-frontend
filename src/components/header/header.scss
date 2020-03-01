@@ -4,11 +4,13 @@
 }
 
 .tabs {
-    width: 100vw;
+    width: 100%;
+    max-width: 375px;
     display: flex;
     .tab {
         flex: 0 0 33%;
         font-size: 13px;
+        min-width: 125px;
         svg {
             font-size: 30px;
         }

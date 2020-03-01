@@ -30,7 +30,7 @@ function Header(props) {
             component={Link}
             to="/"
             icon={<NotificationImportantOutlinedIcon />}
-            label="Calls"
+            // label="Calls"
           />
           <Tab
             value={1}
@@ -39,7 +39,7 @@ function Header(props) {
             component={Link}
             to="/medicinewaiting"
             icon={<AlarmAddOutlinedIcon />}
-            label="Medicine"
+            // label="Medicine"
           />
           <Tab
             value={2}
@@ -48,7 +48,7 @@ function Header(props) {
             component={Link}
             to="/patients"
             icon={<FaceOutlinedIcon />}
-            label="Patients"
+            // label="Patients"
           />
           {/* <Tab
             value={3}
